@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   handleResetResult = state => {
-    this.setState({ token: state });
+    this.setState({ result: state });
   }
 
   render() {

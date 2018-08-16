@@ -133,10 +133,10 @@ class ResetPage extends Component {
             password: this.state.password,
         })
         .then(() => {
-            this.props.handleResetResult(true);
+            this.props.handleResetResult(1);
         })
         .catch(() => {
-            this.props.handleResetResult(false);
+            this.props.handleResetResult(2);
         });
     }
         

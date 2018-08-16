@@ -26,8 +26,8 @@ const ResetResult = props => {
     return(
         <Card className={classes.wrapper}>
             <CardHeader
-                classes={{title: props.result > 55 ? classes.successColor : classes.failColor}}
-                title={`${props.result > 55 ?
+                classes={{title: props.result === 1 ? classes.successColor : classes.failColor}}
+                title={`${props.result === 1 ?
                 'Awesome, password has been changed successfully' :
                 'Oooops, something went wrong, please try again'}`}
             />
