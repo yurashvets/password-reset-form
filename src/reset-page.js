@@ -68,7 +68,6 @@ class ResetPage extends Component {
         super(props);
         this.state = {
             token: null,
-            uid: null,
             password: '',
             passwordConfirmation: '',
             showPassword: false,
@@ -80,7 +79,7 @@ class ResetPage extends Component {
     }
 
     componentDidMount = () => {
-        this.setState({ token: this.props.match.params.token, uid: this.props.match.params.uid })
+        this.setState({ token: this.props.match.params.token })
     }
 
     handleChange = event => {
@@ -124,16 +123,14 @@ class ResetPage extends Component {
     handleSubmit = () => {
         const isValid = this.validatePassword();
         if (isValid) {
-            this.patchPassword(this.props.url);
+            this.patchPassword('/v1/authentication/reset_password');
         } else return
     }
 
     patchPassword = url => {
         axios.patch(`${url}`, {
             token: this.state.token,
-            uid: this.state.uid,
             password: this.state.password,
-            passwordConfirmation: this.state.passwordConfirmation
         })
         .then(() => {
             this.props.handleResetResult(true);
